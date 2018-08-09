@@ -6,10 +6,10 @@ session_start();
 date_default_timezone_set('America/Sao_Paulo');
 
 //database credentials
-define('DBHOST','localhost');
-define('DBUSER','root');
-define('DBPASS','');
-define('DBNAME','borradoano');
+define('DBHOST','edo4plet5mhv93s3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com	');
+define('DBUSER','sm38r4alhb5fmgwj');
+define('DBPASS','n67igr2zbi9rh9c0');
+define('DBNAME','xgoosp5ef7msdibz');
 
 //application address
 define('DIR','http://localhost/');
