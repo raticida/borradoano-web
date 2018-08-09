@@ -1,0 +1,41 @@
+/* Show it is fixed to the top */
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+	background-color:#764a21 !important;
+}
+.custom-control-input:checked~.custom-control-label::before {
+	background-color:#764a21 !important;
+}
+.form-control:focus {
+  border-color: #764a21 !important;
+  box-shadow: 0 0 0 0.2rem #764a2152 !important;
+}
+.navbar-nav .nav-link {
+    padding: 15px !important;
+}
+
+.navbar-toggler {
+    background-color: white !important;
+}
+
+.navbar-toggler-icon {
+    line-height: 30px;
+	color: #764a21;
+	width: 40px !important;
+}
+
+a:hover {
+  color: #eee !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #764a21 !important;
+}
