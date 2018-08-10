@@ -22,19 +22,19 @@ if(!$user->is_logged_in()){ header('Location: login.php'); exit(); }
 
 <script type="text/javascript" src="js/pnotify.custom.js"></script>
 
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" rel="stylesheet">
 
 <link id="bsdp-css" href="//uxsolutions.github.io/bootstrap-datepicker/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
- 
-<link href="css/offcanvas.css" rel="stylesheet"> 
+    
+<link href="css/offcanvas.css" rel="stylesheet">
 <link href="css/navbar-top-fixed.css" rel="stylesheet">
 <link href="css/pnotify.custom.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
 
 <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
@@ -59,13 +59,8 @@ if(!$user->is_logged_in()){ header('Location: login.php'); exit(); }
 <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
 
 
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-
-
-
-
 
 <script type="text/javascript">
 
@@ -73,26 +68,20 @@ if(!$user->is_logged_in()){ header('Location: login.php'); exit(); }
 		
 		//tratativa dos checkboxes
 		$(function() {	
-		$(':checkbox').on( 'change', function() {
-		  if( $(':checkbox:checked').length === 4 ){
+		$('#qtd_pontos').on( 'change', function() {
+		  if( $('#qtd_pontos').val().length !=0 ){
 			 $('#enviar').prop( 'disabled', false );
 		  } else {
 			 $('#enviar').prop( 'disabled', true );
 		  }
 			});
 		});
-	
-		//inicia o datapicker
-		$('.input-daterange').datepicker({
-			language: "pt-BR"
-		});
-
-		
+			
 	});
 </script>
 
-
 <?php
+
 //verifica se há um evento e de qual tipo é se não torna-o vazio
 $event = (isset($_SESSION['event'])) ? $_SESSION['event'] : '';
 $event_type = (isset($_SESSION['event_type'])) ? $_SESSION['event_type'] : '';
@@ -114,12 +103,12 @@ switch ($event) {
 }
 ?>
 
-
 </head>
 
 
   <body class="bg-light">
   
+
     <nav class="navbar navbar-expand-md fixed-top" style="background-color: #764a21">
 	 <div class="container">
 	  <img class="d-block mr-2 " src="images/logo_icon.png" alt="" height="50">
@@ -148,25 +137,11 @@ switch ($event) {
         </ul>
       </div>
       </div>
-    </nav> 
+    </nav>
   
   
-  
-  
-    <div class="container">
-      <div class="py-5 text-center">
-	    <img class="d-block mx-auto mb-4" src="images/logo_icon.png" alt="" height="72">
-        <h2>Borra do Ano</h2>
-        <p class="lead">Inteface Web para adicionar uma nova Enquete no Sistema Borra do Ano v2.0</p>
-      </div>
+ <?php
 
-      <div class="row">
-		<div class="col-lg-2">
-		</div>
-        <div class="col-lg-8">
-          <h4 class="mb-3">Nova Enquete</h4>
-		  
-<?php 
 	  
     $url = 'https://borradoanov2.herokuapp.com/getAllBorras';
 	$data = file_get_contents($url); // put the contents of the file into a variable
@@ -175,68 +150,82 @@ switch ($event) {
 	//echo 'Qtde: '.count($result);
 	
 
-	echo '<form id="form1" method="post" action="send_poll.php">
-            <div class="mb-3">
-              <label for="descricao">Descrição da Enquete</label>
-              <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Digite aqui a nova Enquete" required autocomplete="off">
-            </div>
-            <hr class="mb-4">
-			<div class="row">
-              <div class="col-md-8 mb-3">
-				<label for="datapicker">Data de validade da Enquete</label>
-				<div class="input-daterange input-group" id="datepicker">
-					<input type="text" class="input-sm form-control" placeholder="Data de Início" name="start" id="datapicker" autocomplete="off" required/>
-					<span class="input-group-addon" style="padding: 4px 15px; line-height: 1.5;">até</span>
-					<input type="text" class="input-sm form-control" placeholder="Data de Término" name="end" id="datapicker2" autocomplete="off" required/>
-				</div>
-              </div>
-            </div>
-			<hr class="mb-4">
-			<div class="row">
-			<div class="col-md-8 mb-3">
-			<label>Escolha 4 Borras para participar da Enquete</label>';
-	echo "\n";
+?>	 
+  
+  
+    <div class="container">
+      <div class="py-5 text-center">
+	    <img class="d-block mx-auto mb-4" src="images/logo_icon.png" alt="" height="72">
+        <h2>Borra do Ano</h2>
+        <p class="lead">Inteface Web para Pontuar um Borra no Sistema Borra do Ano v2.0</p>
+      </div>
 
-	$count = -1;
-	
-	foreach ($result as $item) {
-	
-	$count = $count + 1;
-
-	
-	/*
-	echo '<input type="hidden" name="approved['.$count.']" value="0"><input type="checkbox" class="single-checkbox" name="approved['.$count.']" value="1" id="checkbox'.$count.'"><label for="checkbox'.$count.'">'.$item->nome.'</label>
-		  <input type="hidden" name="borra_id[]" value="'.$item->id.'"><input type="hidden" name="borra_nome[]" value="'.$item->nome.'"><br>';
+		<div class="row">	
+			<div class="col-lg-12">
+			  <h4 class="mb-3">Borra Ranking</h4>
+			<hr class="mb-4">				
+			</div>
+		</div>	
 		  
-	*/
+    <div class="row">
 	
-	echo    '<div class="custom-control custom-checkbox">
-			  <input type="hidden" name="approved['.$count.']" value="0"><input type="checkbox" class="single-checkbox custom-control-input" name="approved['.$count.']" value="1" id="checkbox'.$count.'">
-			  <label class="custom-control-label" for="checkbox'.$count.'">'.$item->nome.'</label>
-			  <input type="hidden" name="borra_id[]" value="'.$item->id.'"><input type="hidden" name="borra_nome[]" value="'.$item->nome.'">
-			</div>';
-	echo "\n";
-	}
 	
-			
-			
-  echo '</div>
-		</div>
-		<hr class="mb-4">
-		<div class="row">
-			<div class="col-lg-3">
-			</div>
-			<div class="col-lg-6">
-				<button id="enviar" class="btn btn-lg btn-block" form="form1" type="submit" name="submit" disabled style="background-color:#764a21;color:#fff;">Enviar Enquete</button>
-			</form>	
-			</div>
-		</div>
-        </div>
-		</div>
-      </div>';
-  
-  
-?>		  
+	<?php foreach ($result as $item) {
+	
+	if ( $item->qtd_trofeu == '1' ) { $active_trophy = 'style="color:#ffc107;"'; } else { $active_trophy = ''; }
+	if ( $item->beer == '1' ) { $active_beer = 'style="color:#ffc107;"'; } else { $active_beer = ''; }
+
+	echo '
+	
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding:15px;">
+		  <div class="main-section text-center">
+			  <div>
+				  <div class="col-lg-12 col-sm-12 col-12 profile-header"></div>
+			  </div>
+			  <div class="user-detail">
+				  <div class="col-lg-12 col-sm-12 col-12">
+					  <img src="images/logo_icon.png" class="rounded-circle img-thumbnail">
+					  <h5>'.$item->nome.'</h5>
+					  <hr>
+					  <span>'.$item->pontos.' Pontos</span>
+				  </div>
+			  </div>
+			  <div class="user-social-detail">
+				  <div class="col-lg-12 col-sm-12 col-12">
+					  <i class="fa fa-trophy" aria-hidden="true" '.$active_trophy.'></i></i>
+					  <i class="fa fa-beer" aria-hidden="true" '.$active_beer.'></i>
+				  </div>
+			  </div>
+		  </div>
+      </div>
+	  
+	  '; echo "\n"; } ?>
+
+
+
+	  
+	  
+    </div>
+
+
+
+
+
+	  
+</div>		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+	  
 		  
 
       <footer class="my-5 pt-5 text-muted text-center text-small">

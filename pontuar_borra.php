@@ -14,10 +14,10 @@ if(!$user->is_logged_in()){ header('Location: login.php'); exit(); }
 <html>
 <head>
 <title>Borra do Ano - Enquetes</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
 
 <script type="text/javascript" src="js/pnotify.custom.js"></script>
@@ -31,6 +31,7 @@ if(!$user->is_logged_in()){ header('Location: login.php'); exit(); }
 <link href="css/offcanvas.css" rel="stylesheet">
 <link href="css/navbar-top-fixed.css" rel="stylesheet">
 <link href="css/pnotify.custom.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
 
 <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
