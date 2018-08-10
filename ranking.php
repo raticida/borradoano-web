@@ -183,7 +183,7 @@ switch ($event) {
 			  </div>
 			  <div class="user-detail">
 				  <div class="col-lg-12 col-sm-12 col-12">
-					  <img src="images/logo_icon.png" class="rounded-circle img-thumbnail" style="padding: 15px;">
+					  <img src="images/logo_icon.png" class="rounded-circle img-thumbnail">
 					  <h5>'.$item->nome.'</h5>
 					  <hr>
 					  <span>'.$item->pontos.' Pontos</span>
