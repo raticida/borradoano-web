@@ -58,7 +58,6 @@ if(!$user->is_logged_in()){ header('Location: login.php'); exit(); }
 <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
 <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
 
-
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
@@ -184,7 +183,7 @@ switch ($event) {
 			  </div>
 			  <div class="user-detail">
 				  <div class="col-lg-12 col-sm-12 col-12">
-					  <img src="images/logo_icon.png" class="rounded-circle img-thumbnail">
+					  <img src="images/logo_icon.png" class="rounded-circle img-thumbnail" style="padding: 15px;">
 					  <h5>'.$item->nome.'</h5>
 					  <hr>
 					  <span>'.$item->pontos.' Pontos</span>
